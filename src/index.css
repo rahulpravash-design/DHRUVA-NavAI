@@ -1,0 +1,368 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0f131c;
+  --color-surface-dim: #0f131c;
+  --color-surface-bright: #353943;
+  --color-surface-container-lowest: #0a0e17;
+  --color-surface-container-low: #181b25;
+  --color-surface-container: #1c1f29;
+  --color-surface-container-high: #262a34;
+  --color-surface-container-highest: #31353f;
+  --color-on-surface: #dfe2ef;
+  --color-on-surface-variant: #d8c3ac;
+  --color-inverse-surface: #dfe2ef;
+  --color-inverse-on-surface: #2c303a;
+  --color-outline: #a08e79;
+  --color-outline-variant: #524433;
+  --color-surface-tint: #ffb952;
+  --color-primary: #ffcf91;
+  --color-on-primary: #452b00;
+  --color-primary-container: #ffaa00;
+  --color-on-primary-container: #694300;
+  --color-primary-fixed: #ffddb4;
+  --color-primary-fixed-dim: #ffb952;
+  --color-on-primary-fixed: #291800;
+  --color-on-primary-fixed-variant: #633f00;
+  --color-inverse-primary: #825500;
+  --color-secondary: #d3fbff;
+  --color-on-secondary: #00363a;
+  --color-secondary-container: #00eefc;
+  --color-on-secondary-container: #00686f;
+  --color-secondary-fixed: #7df4ff;
+  --color-secondary-fixed-dim: #00dbe9;
+  --color-on-secondary-fixed: #002022;
+  --color-on-secondary-fixed-variant: #004f54;
+  --color-tertiary: #ffcacf;
+  --color-on-tertiary: #670020;
+  --color-tertiary-container: #ffa2ad;
+  --color-on-tertiary-container: #990034;
+  --color-tertiary-fixed: #ffd9dc;
+  --color-tertiary-fixed-dim: #ffb2ba;
+  --color-on-tertiary-fixed: #400011;
+  --color-on-tertiary-fixed-variant: #910030;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-background: #0f131c;
+  --color-on-background: #dfe2ef;
+  --color-surface-variant: #31353f;
+
+  --font-headline-lg: "Space Grotesk", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
+  --font-display-lg: "Space Grotesk", sans-serif;
+  --font-display-lg-mobile: "Space Grotesk", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-body-sm: "Inter", sans-serif;
+  --font-label-caps: "JetBrains Mono", monospace;
+  --font-telemetry-numeral: "JetBrains Mono", monospace;
+  --font-telemetry-unit: "JetBrains Mono", monospace;
+  --font-code-stream: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html, body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #0f131c;
+    color: #dfe2ef;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Inter', sans-serif;
+  }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+}
+
+::-webkit-scrollbar { display: none; }
+
+@keyframes pulse-beacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* Typography helper classes */
+.font-label-caps {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.font-telemetry-unit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.font-telemetry-numeral {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.font-code-stream {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 400;
+}
+
+.font-headline-md {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.font-headline-lg {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.font-display-lg {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  line-height: 52px;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.font-body-lg {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.font-body-md {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.px-gutter {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-margin {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.p-space-sm { padding: 0.5rem; }
+.p-space-md { padding: 0.75rem; }
+.p-space-lg { padding: 1rem; }
+.p-space-xl { padding: 1.5rem; }
+
+.py-space-xs { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-space-sm { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-space-md { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+.px-space-xs { padding-left: 0.25rem; padding-right: 0.25rem; }
+.px-space-sm { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-space-md { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-space-lg { padding-left: 1rem; padding-right: 1rem; }
+
+.gap-space-xs { gap: 0.25rem; }
+.gap-space-sm { gap: 0.5rem; }
+.gap-space-md { gap: 0.75rem; }
+.gap-space-lg { gap: 1rem; }
+.gap-space-xl { gap: 1.5rem; }
+
+.space-y-space-xs > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(0.25rem * var(--tw-space-y-reverse)); }
+.space-y-space-sm > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(0.5rem * var(--tw-space-y-reverse)); }
+.space-y-space-md > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(0.75rem * var(--tw-space-y-reverse)); }
+.space-y-space-lg > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse))); margin-bottom: calc(1rem * var(--tw-space-y-reverse)); }
+
+.space-x-space-xs > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 0; margin-right: calc(0.25rem * var(--tw-space-x-reverse)); margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse))); }
+.space-x-space-sm > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 0; margin-right: calc(0.5rem * var(--tw-space-x-reverse)); margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse))); }
+.space-x-space-md > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 0; margin-right: calc(0.75rem * var(--tw-space-x-reverse)); margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse))); }
+
+/* =========================================================================
+   TACTICAL HIGH-CONTRAST DAYLIGHT MODE (OUTDOOR HIGH VISIBILITY)
+   ========================================================================= */
+
+html.daylight {
+  color-scheme: light;
+}
+
+html.daylight body {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Global App Shell Overrides */
+html.daylight [class*="bg-[#0f131c]"],
+html.daylight .bg-\[\#0f131c\] {
+  background-color: #f1f5f9 !important;
+}
+
+/* Headers, Bottom Navigation, Modals, Card Containers */
+html.daylight header {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom-color: #cbd5e1 !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.daylight nav.fixed {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-top-color: #cbd5e1 !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.daylight [class*="bg-[#0a0e17]"],
+html.daylight .bg-\[\#0a0e17\] {
+  background-color: #ffffff !important;
+}
+
+html.daylight [class*="bg-[#1c1f29]"],
+html.daylight .bg-\[\#1c1f29\] {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.daylight [class*="bg-[#181b25]"],
+html.daylight .bg-\[\#181b25\] {
+  background-color: #f8fafc !important;
+}
+
+html.daylight [class*="bg-[#262a34]"],
+html.daylight .bg-\[\#262a34\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.daylight [class*="bg-[#31353f]"],
+html.daylight .bg-\[\#31353f\] {
+  background-color: #e2e8f0 !important;
+}
+
+/* Modal Backdrops */
+html.daylight .fixed.inset-0.bg-\[\#0f131c\]\/80,
+html.daylight .fixed.inset-0.bg-black\/80,
+html.daylight .fixed.inset-0.bg-black\/70,
+html.daylight [class*="backdrop-blur"] {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* Form Controls & Inputs */
+html.daylight input,
+html.daylight textarea,
+html.daylight select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.daylight input::placeholder,
+html.daylight textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* High-Contrast Typographic Overrides */
+html.daylight [class*="text-[#dfe2ef]"],
+html.daylight .text-\[\#dfe2ef\] {
+  color: #0f172a !important;
+}
+
+html.daylight [class*="text-[#d8c3ac]"],
+html.daylight .text-\[\#d8c3ac\] {
+  color: #334155 !important;
+}
+
+html.daylight [class*="text-[#d8c3ac]/60"],
+html.daylight [class*="text-[#d8c3ac]/70"],
+html.daylight [class*="text-[#d8c3ac]/80"] {
+  color: #64748b !important;
+}
+
+/* Tactical Accents: Boost contrast for direct sunlight */
+html.daylight [class*="text-[#00eefc]"],
+html.daylight .text-\[\#00eefc\] {
+  color: #0284c7 !important;
+}
+
+html.daylight [class*="text-[#ffcf91]"],
+html.daylight .text-\[\#ffcf91\] {
+  color: #92400e !important;
+}
+
+html.daylight [class*="text-[#ffaa00]"],
+html.daylight .text-\[\#ffaa00\] {
+  color: #b45309 !important;
+}
+
+html.daylight [class*="text-[#ffcacf]"],
+html.daylight [class*="text-[#ffb4ab]"] {
+  color: #b91c1c !important;
+}
+
+/* Borders in Daylight */
+html.daylight [class*="border-[#31353f]"],
+html.daylight .border-\[\#31353f\],
+html.daylight [class*="border-[#524433]"],
+html.daylight .border-\[\#524433\] {
+  border-color: #cbd5e1 !important;
+}
+
+html.daylight [class*="border-[#00eefc]/40"],
+html.daylight [class*="border-[#00eefc]/30"] {
+  border-color: rgba(2, 132, 199, 0.45) !important;
+}
+
+html.daylight [class*="border-[#ffaa00]/40"],
+html.daylight [class*="border-[#ffcf91]/40"] {
+  border-color: rgba(217, 119, 6, 0.45) !important;
+}
+
+/* Daylight Map Canvas Enhancements */
+html.daylight .hud-map-viewport {
+  background-color: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+
+html.daylight .hud-map-viewport .map-satellite-overlay {
+  mix-blend-mode: multiply !important;
+  opacity: 0.18 !important;
+  filter: contrast(120%) brightness(110%) !important;
+}
+
+html.daylight .hud-map-viewport svg line[stroke="#00eefc"] {
+  stroke: #0284c7 !important;
+  stroke-opacity: 0.3 !important;
+}
+
+html.daylight .hud-map-viewport svg text[fill="#00eefc"] {
+  fill: #0369a1 !important;
+  font-weight: 700 !important;
+}
+
+html.daylight .hud-map-viewport svg text[fill="#ffcf91"] {
+  fill: #92400e !important;
+  font-weight: 700 !important;
+}
+
+html.daylight .hud-map-viewport svg circle[fill="#00eefc"] {
+  fill: #0284c7 !important;
+}

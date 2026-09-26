@@ -1,0 +1,6 @@
+{
+  "name": "DHRUVA - Tactical Dead-Reckoning Navigation",
+  "description": "Resilient 100Hz IMU dead-reckoning tactical HUD navigation, EKF kinematics engine, fault injection, and field benchmark metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
